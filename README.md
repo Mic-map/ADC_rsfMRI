@@ -46,8 +46,7 @@ Modify the params.json:
 
 Each script should be run as:
   ```shell
-  cd ADC_rsfMRI
-  python name_of_the_script.py
+  python ADC_rsfMRI/name_of_the_script.py
   ```
    
 ## Files description
