@@ -34,6 +34,7 @@ This git summarizes the code needed to process the data and generate the paper f
 To run the different scripts, you will need a minimal conda environment : 
   ```shell
   git clone https://github.com/ideriedm/ADC_rsfMRI.git
+  cd ADC_rsfMRI
   conda env create -f env.yml
   conda activate rs_env
   ```
@@ -45,7 +46,7 @@ Modify the params.json:
 
 Each script should be run as:
   ```shell
-  cd ADC_rsfMRI/ADC_rsfMRI
+  cd ADC_rsfMRI
   python name_of_the_script.py
   ```
    
