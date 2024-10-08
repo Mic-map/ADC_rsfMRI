@@ -212,7 +212,8 @@ for field in fieldstrength:
                           dodge=True, 
                           palette=my_pal,
                           edgecolor='darkgray',
-                          linewidth=1
+                          linewidth=1,
+                          alpha=0.8
                           )
             
             for collection in ax[idx].collections:
@@ -222,16 +223,6 @@ for field in fieldstrength:
                     collection.set_alpha(0.1)
 
             handles, labels = ax[idx].get_legend_handles_labels()
-            # When creating the legend, only use the first two elements
-            # to effectively remove the last two.
-            ax[idx].legend([], [], frameon=False)
-                
-            ax[idx].tick_params(bottom=False)
-            ax[idx].set(ylabel=None, 
-                        xlabel=None, 
-                        ylim=[net_no_assort.data.min() - .6 * (net_no_assort.data.max() - net_no_assort.data.min()), 
-                              net_no_assort.data.max() + .6 * (net_no_assort.data.max() - net_no_assort.data.min())],
-                        xlim=[-0.5, 0.5])
 
             # Statistical tests
             couples = []
@@ -264,6 +255,18 @@ for field in fieldstrength:
                                           text_format="star",
                                           loc="inside",
                                           )
+
+            # When creating the legend, only use the first two elements
+            # to effectively remove the last two.
+            ax[idx].legend([], [], frameon=False)
+                
+            ax[idx].tick_params(bottom=False, labelbottom=False)
+            ax[idx].set(ylabel=n, 
+                        xlabel=None, 
+                        ylim=[net_no_assort.data.min() - .6 * (net_no_assort.data.max() - net_no_assort.data.min()), 
+                              net_no_assort.data.max() + .6 * (net_no_assort.data.max() - net_no_assort.data.min())],
+                        xlim=[-0.5, 0.5])
+
             ROI_to_write = ROI.replace(" ", "_").replace("-", "_")
             print("Saved in : ", f"{savefig_path}/general_metrics_weighted_{ROI_to_write}_{field}.png")
             fig.savefig(f"{savefig_path}/general_metrics_weighted_{ROI_to_write}_{field}.png")

@@ -75,6 +75,11 @@ GSR = True
 lim_max  = 1.7
 lim_min  = -.9
 
+# Color of scatter points
+color_dots = "#005AB5"
+# Color of regression line & identity line
+color_line = "#DC3220"
+
 # Swap the axis. If False, BOLD is on x-axis
 swap_axis = False
 
@@ -143,13 +148,13 @@ for field in fieldstrengths:
 
     # Plot connectivity strength of G1 vs G2
     # Add horizontal, vertical & diagonal lines
-    ax.axhline(y=0, color='grey', linewidth=1)
-    ax.axvline(x=0, color='grey', linewidth=1)
-    add_identity(ax, color='gray', ls='--', linewidth=3)
+    ax.axhline(y=0, color='black', linewidth=1)
+    ax.axvline(x=0, color='black', linewidth=1)
+    add_identity(ax, color=color_line, ls='--', linewidth=3)
     lim_max = np.max([np.max(FC_ref_values[~np.isnan(FC_ref_values)]), np.max(FC_comp_values[~np.isnan(FC_comp_values)])])
     lim_max = lim_max * 1.1
     lim_min = -lim_max
-    ax.scatter(FC_ref_values, FC_comp_values, color=colors, s=20, alpha=0.05, edgecolor="black", linewidths=1.5)
+    ax.scatter(FC_ref_values, FC_comp_values, color=color_dots, s=20, alpha=0.05, edgecolor="black", linewidths=1.5)
     if np.sum(idx_neg) != 0:
         x_neg = np.linspace(lim_min, 0, 10)
         if res_neg.pvalue < 0.05:
@@ -159,7 +164,7 @@ for field in fieldstrengths:
 
         ax.plot(x_neg, 
                 p_neg(x_neg), 
-                color=colors, 
+                color=color_line, 
                 linestyle="dotted",
                 label=f'slope: {res_neg.slope:.2f}, R²: {res_neg.rvalue**2:.2f}, p {pval}',
                 linewidth=3)
@@ -171,7 +176,7 @@ for field in fieldstrengths:
         pval = ">= 0.05"
     ax.plot(x_pos, 
             p_pos(x_pos), 
-            color=colors,
+            color=color_line,
             label=f'slope: {res_pos.slope:.2f}, R²: {res_pos.rvalue**2:.2f}, p {pval}',
             linewidth=3)
     ax.set_xlim([lim_min, lim_max])

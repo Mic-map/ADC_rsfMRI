@@ -169,7 +169,8 @@ for field in fieldstrength:
                 palette=my_pal,
                 edgecolor='darkgray',
                 order=['GM - GM', 'WM - WM', 'GM - WM'],
-                linewidth=1)
+                linewidth=1,
+                alpha=0.8)
 
     for collection in ax.collections:
         if isinstance(collection, matplotlib.collections.PolyCollection):
@@ -275,7 +276,8 @@ for field in fieldstrength:
                 palette=my_pal,
                 edgecolor='darkgray',
                 order=['GM - GM', 'WM - WM', 'GM - WM'],
-                linewidth=1)
+                linewidth=1,
+                alpha=0.8)
 
     for collection in ax.collections:
         if isinstance(collection, matplotlib.collections.PolyCollection):

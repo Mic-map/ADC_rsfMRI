@@ -19,7 +19,7 @@ latex_linewidth = 483.69687
 latex_params = {
                 # Use LaTeX to write all text
                 # "text.usetex": True,
-                "font.family": "serif",
+                "font.family": "Arial",
                 # Use 10pt font in plots (a bit smaller than 11pt font in document)
                 "font.size": 10,
                 "axes.labelsize": 10,
@@ -64,6 +64,9 @@ def fig_size(fraction=1, height_ratio=1, subplot=[1, 1]):
     fig_dim: tuple
             Dimensions of figure in inches
     """
+
+    mpl.rcParams.update(latex_params)
+    
     # Width of figure
     fig_width_pt  = latex_linewidth * fraction
 
