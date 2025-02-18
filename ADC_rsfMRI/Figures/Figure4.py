@@ -20,6 +20,9 @@ import pandas as pd
 from pathlib import Path
 import numpy as np
 from copy import deepcopy
+import sys
+import os
+sys.path.insert(1, os.path.dirname(sys.path[0]))
 from utils import common_regions, load_FC
 from fig_style import fig_size
 import json

@@ -17,7 +17,9 @@ import matplotlib.pyplot as plt
 from copy import deepcopy
 import seaborn as sns
 import scipy.stats as st
-
+import sys
+import os
+sys.path.insert(1, os.path.dirname(sys.path[0]))
 from utils import common_regions, wilcoxon_sign_edges, load_FC, similarity_GM_GM, similarity_GM_WM, similarity_WM_WM
 from fig_style import fig_size
 import json

@@ -29,6 +29,9 @@ import matplotlib
 import networkx as nx
 from copy import deepcopy
 import statannot
+import sys
+import os
+sys.path.insert(1, os.path.dirname(sys.path[0]))
 from utils import common_regions, load_FC, wilcoxon_sign_edges
 from fig_style import fig_size
 import json
@@ -41,13 +44,13 @@ params_path = 'params.json'
 with open(params_path, 'r') as file:
     params = json.load(file)
 
-data_folder  = Path(f"{params["paths"]["data_path"]}")
+data_folder  = Path(f'{params["paths"]["data_path"]}')
 savefig_path = params["paths"]["savefig_path"]
 
-# DMN-DMN = NMM-NMM = GM-GM
+# NMM-NMM = GM-GM
 # JHU-JHU = WM-WM
-# Cannot do "DMN-JHU" cause non-squared matrix
-ROIs        = ["DMN-DMN FC", "JHU-JHU FC"]  
+# Cannot do "NMM-JHU" cause non-squared matrix
+ROIs        = ["NMM-NMM FC", "JHU-JHU FC"]  
 # "se_rs" (BOLD), "diff_rs" (ADC-fMRI)
 contrasts   = ["se_rs", "diff_rs"]
 # percentage of subjects in which the ROI should be present
@@ -84,7 +87,7 @@ for field in fieldstrength:
             mask  = np.logical_and(mask, ~np.identity(mask.shape[0]).astype('bool'))
 
             for subject_id, subject in enumerate(FC_all):
-                if ROI == "DMN-DMN FC":
+                if ROI == "NMM-NMM FC":
                     FC_subject = deepcopy(np.arctanh(FC_all[subject_id, ...]))
                     FC_subject[~mask] = 0
                     FC_subject = FC_subject[
@@ -102,7 +105,7 @@ for field in fieldstrength:
 
                 FC_subject_df = pd.DataFrame(FC_subject)
                 
-                if ROI == "DMN-DMN FC":
+                if ROI == "NMM-NMM FC":
                     FC_subject_df.columns = GM_common_ROIs
                     FC_subject_df.index   = GM_common_ROIs
         
@@ -161,11 +164,11 @@ for field in fieldstrength:
                     "region": ROI,
                 }
  
-# Store
-if GSR:
-    network_metrices.to_csv(data_folder / "weighted_metrics_GSR.csv", index=False)
-else:
-    network_metrices.to_csv(data_folder / "weighted_metrics_no_GSR.csv", index=False)
+# # Store
+# if GSR:
+#     network_metrices.to_csv(data_folder / "weighted_metrics_GSR.csv", index=False)
+# else:
+#     network_metrices.to_csv(data_folder / "weighted_metrics_no_GSR.csv", index=False)
 
 # Load
 if GSR:

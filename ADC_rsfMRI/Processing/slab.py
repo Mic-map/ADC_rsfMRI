@@ -5,6 +5,9 @@ For each subject, it binarizes the slab, and then calculates the average between
 
 from pathlib import Path
 import numpy as np 
+import sys
+import os
+sys.path.insert(1, os.path.dirname(sys.path[0]))
 from utils import save_nifti
 import os
 import nibabel as nib

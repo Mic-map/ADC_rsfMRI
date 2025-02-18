@@ -19,6 +19,9 @@ import matplotlib.pyplot as plt
 import matplotlib
 import statannot
 from copy import deepcopy
+import sys
+import os
+sys.path.insert(1, os.path.dirname(sys.path[0]))
 from utils import common_regions, load_FC, wilcoxon_sign_edges
 from fig_style import fig_size
 import json
@@ -325,19 +328,20 @@ for field in fieldstrength:
             ):
                 couples_end.append((couples[i], couples[i + 2]))
 
-    statannot.add_stat_annotation(
-        ax,
-        data=df[(df.correlation < 0) & (df.ROI != "All")],
-        y="correlation",
-        x="ROI",
-        hue="Contrast",
-        hue_order=contrasts,
-        box_pairs=couples_end,
-        test="Mann-Whitney",
-        text_format="star",
-        order=['GM - GM', 'WM - WM', 'GM - WM'],
-        loc="inside"
-    )
+    if len(couples_end) > 0:
+        statannot.add_stat_annotation(
+            ax,
+            data=df[(df.correlation < 0) & (df.ROI != "All")],
+            y="correlation",
+            x="ROI",
+            hue="Contrast",
+            hue_order=contrasts,
+            box_pairs=couples_end,
+            test="Mann-Whitney",
+            text_format="star",
+            order=['GM - GM', 'WM - WM', 'GM - WM'],
+            loc="inside"
+        )
 
     neg_plot.set_xticklabels(['GM - GM\n' + '$N_{BOLD}$' + f'={len(df_neg_bold[df_neg_bold.ROI == "GM - GM"].values)}\n' + '$N_{ADC}$' + f'={len(df_neg_adc[df_neg_adc.ROI == "GM - GM"].values)}', 
                               'WM - WM\n' + '$N_{BOLD}$' + f'={len(df_neg_bold[df_neg_bold.ROI == "WM - WM"].values)}\n' + '$N_{ADC}$' + f'={len(df_neg_adc[df_neg_adc.ROI == "WM - WM"].values)}', 

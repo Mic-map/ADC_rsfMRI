@@ -10,8 +10,10 @@ File that:
 """
 import numpy as np
 from pathlib import Path
-
 import pandas as pd
+import sys
+import os
+sys.path.insert(1, os.path.dirname(sys.path[0]))
 from utils import common_regions, read_labels_NMM_JHU, calculate_correlations, extract_timecourses, load_FC, order_LR, plot_mean_FC
 from copy import deepcopy
 import json
