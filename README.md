@@ -50,28 +50,27 @@ Each script should be run as:
   ```
    
 ## Files description
-
-`Correlations_agreement.py` (Fig. 1): File that plots the ADC-to-BOLD agreement of mean functional connectivity (FC).
-
-`FC_amplitude_per_regions.py` (Fig. 2): Function that separates FC edges amplitudes according to 3 connectivity regions:
+`Figures/Figure3.py`: Function that separates FC edges amplitudes according to 3 connectivity regions:
 - gray-to-gray matter (GM-GM)
 - gray-to-white matter (GM-WM)
 - white-to-white matter (WM-WM)
+  
+`Figures/Figure4.py`: File that plots the ADC-to-BOLD agreement of mean functional connectivity (FC).
 
-`FC_matrix.py` (Fig. S2): File that plots the ADC vs BOLD mean functional connectivity (FC).
+`Figures/Figure5.py`: File that calculates subjectwise weighted graph metrices in two connectivity regions:
+- gray-to-gray matter (GM-GM)
+- white-to-white matter (WM-WM)
+
+`Figures/Figure6.py`: Function that calculates the inter-subject similarity by calculating the Pearson's correlation coefficient between the significant edges, excluding self-connections, split in 3 connectivity regions:
+- gray-to-gray matter (GM-GM)
+- gray-to-white matter (GM-WM)
+- white-to-white matter (WM-WM)
+  
+`Processing/FC_matrix.py` (Fig. S10 and S15): File that plots the ADC vs BOLD mean functional connectivity (FC).
+
+`Processing/slab.py` (Fig. S6): File that plots the common slab between all ADC-fMRI volumes, in the MNI space, at 3T.
 
 `fig_style.py`: File that handles the plotting settings.
-
-`graph_subject.py` (Fig. 3): File that calculates subjectwise weighted graph metrices in two connectivity regions:
-- gray-to-gray matter (GM-GM)
-- white-to-white matter (WM-WM)
-
-`similarity.py` (Fig. 4): Function that calculates the inter-subject similarity by calculating the Pearson's correlation coefficient between the significant edges, excluding self-connections, split in 3 connectivity regions:
-- gray-to-gray matter (GM-GM)
-- gray-to-white matter (GM-WM)
-- white-to-white matter (WM-WM)
-
-`slab.py` (Fig. S1): File that plots the common slab between all ADC-fMRI volumes, in the MNI space, at 3T.
 
 `utils.py`: File containing the utilitary functions.
 
