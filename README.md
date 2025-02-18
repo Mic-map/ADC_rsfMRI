@@ -66,9 +66,9 @@ Each script should be run as:
 - gray-to-white matter (GM-WM)
 - white-to-white matter (WM-WM)
   
-`Processing/FC_matrix.py` (Fig. S10 and S15): File that plots the ADC vs BOLD mean functional connectivity (FC).
+`Processing/FC_matrix.py` (Fig. S1 and S11): File that plots the ADC vs BOLD mean functional connectivity (FC).
 
-`Processing/slab.py` (Fig. S6): File that plots the common slab between all ADC-fMRI volumes, in the MNI space, at 3T.
+`Processing/slab.py` (Fig. S12): File that plots the common slab between all ADC-fMRI volumes, in the MNI space, at 3T.
 
 `fig_style.py`: File that handles the plotting settings.
 
