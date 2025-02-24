@@ -17,9 +17,13 @@ Ines de Riedmatten<sup>1,2∗</sup>, Arthur P C Spencer<sup>1,2</sup>, Wiktor Ol
 
 <sup>*</sup>Corresponding author: Ines de Riedmatten (ines.de-riedmatten@chuv.ch, https://wp.unil.ch/mic-map/)
 
+## Availability
+The preprint can be found on [bioRxiv](https://www.biorxiv.org/content/10.1101/2024.07.03.601842v1).
+The data used to generate the figures are available in [figshare](10.6084/m9.figshare.28435325).
+The raw data will be available upon publication.
 
 ## Introduction
-This git summarizes the code needed to process the data and generate the paper figures. The data will be made available upon publication.
+This git summarizes the code needed to process the data and generate the paper figures. 
 
 ## Table of Contents
 - [Introduction](#introduction)
