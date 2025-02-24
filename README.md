@@ -2,7 +2,7 @@
 <img src="https://wp.unil.ch/mic-map/files/2022/01/cropped-2-MicrostructureMappingLab-01.png" width="50%" style="background-color:white;padding:20px;" >
 </div>
 
-# Apparent Diffusion coefficient fMRI shines a new light on white matter resting-state connectivity, as compared to BOLD
+# Apparent Diffusion coefficient fMRI shines a light on white matter resting-state connectivity, as compared to BOLD
 
 Ines de Riedmatten<sup>1,2∗</sup>, Arthur P C Spencer<sup>1,2</sup>, Wiktor Olszowy<sup>3,4</sup>, Ileana O Jelescu<sup>1,2</sup>
 
